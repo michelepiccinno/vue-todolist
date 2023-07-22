@@ -6,25 +6,26 @@ const app = createApp({
     return {
       arrayList: [
         {
-          text: "testo-1"
+          text: "fare la spesa",
+          done: false
         },
         {
-          text: "testo-1"
+          text: "portare il cane dal veterinario",
+          done: false
         },
         {
-          text: "testo-1"
+          text: "riparare l'automobile",
+          done: false
         },
-        {
-          text: "testo-1"
-        },
-        {
-          text: "testo-1"
-        }
       ]
-    };
+    }
   },
 
   methods: {
-    
+    onCardClick(i) {
+      this.arrayList[i].done = true;
+    }
   }
 }).mount('#app');
+
+

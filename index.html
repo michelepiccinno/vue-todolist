@@ -26,8 +26,12 @@
       <div class="m-2">
         <div class="card">
           <ul class="list-group">
-            <li class="list-group-item" v-for="list-element in arrayList">item 1</li>
-            
+            <!--applica le classi se done === true -->
+            <li class="list-group-item" 
+            v-for="(singleElement, i) in arrayList"
+            v-bind:class="{ 'text-decoration-line-through text-body-tertiary': singleElement.done }" 
+            @click="onCardClick(i)">
+              {{singleElement.text}} </li>
           </ul>
         </div>
       </div>
