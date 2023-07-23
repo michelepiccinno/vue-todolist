@@ -22,16 +22,29 @@
   <div id="app">
 
     <section class="container p-5 bg-info">
-      <input type="text" class="form-control form-control-lg" placeholder="aggiungi le cose da fare">
-      <div class="m-2">
+      <input type="text" class="form-control form-control-lg" v-model="myInput" placeholder="aggiungi le cose da fare">
+      <button class="btn btn-warning m-2"
+      @click="addObject"
+      >AGGIUNGI</button>
+      <div class="my-3">
         <div class="card">
           <ul class="list-group">
-            <!--applica le classi se done === true -->
+         
+             <!--applica le classi se done === true -->
             <li class="list-group-item" 
-            v-for="(singleElement, i) in arrayList"
-            v-bind:class="{ 'text-decoration-line-through text-body-tertiary': singleElement.done }" 
-            @click="onCardClick(i)">
-              {{singleElement.text}} </li>
+            v-for="(singleElement, i) in arrayList" 
+            @click="onCardClick(singleElement.id)"
+            v-bind:class="{ 'text-decoration-line-through text-body-tertiary': singleElement.done }">
+          
+            <!-- {{"id " +  singleElement.id}} -->
+            {{singleElement.text}}
+             
+            <button class="btn btn-link text-danger"
+                @click="deleteSingleElement(singleElement.id)">  <!-- al click "passo" l'id dell 'elemento cliccato alla function'-->
+                <i class="fa-regular fa-rectangle-xmark fa-xl"></i>
+              </button>
+
+            </li>
           </ul>
         </div>
       </div>
