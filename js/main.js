@@ -31,17 +31,23 @@ const app = createApp({
     {
       myInput: ''
     }
+
+    {
+      inputEnterKey: ''
+    }
+
   },
 
   methods: {
 
-    onCardClick(IdElement) {
+    onClickTextThrough(IdElement) {
       for (let i = this.arrayList.length - 1; i >= 0; i--) {
-        if (this.arrayList[i].id === IdElement) {
+        if (this.arrayList[i].id === IdElement && this.arrayList[i].done === false) {
           this.arrayList[i].done = true;
+        } else {
+          this.arrayList[i].done = false;
         }
       }
-      /* console.log(this.arrayList)*/
     },
 
     deleteSingleElement(IdElement) {
@@ -54,10 +60,12 @@ const app = createApp({
     },
 
     addObject() {
-      let newIdToAssing = Math.floor(Math.random() * 9999999) ;
+      let newIdToAssing = Math.floor(Math.random() * 9999999);
       this.arrayList.push({ id: newIdToAssing, text: this.myInput, done: false });
       console.log(this.arrayList);
-    }
-  }
+      console.log(this.onEnter)
+    },
 
+    
+  }
 }).mount('#app');
