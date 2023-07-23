@@ -6,22 +6,22 @@ const app = createApp({
     return {
       arrayList: [
         {
-          id: 101,
+          id: 251476,
           text: "fare la spesa",
           done: false
         },
         {
-          id: 102,
+          id: 345172,
           text: "portare il cane dal veterinario",
           done: false
         },
         {
-          id: 103,
+          id: 211456,
           text: "riparare l'automobile",
           done: false
         },
         {
-          id: 104,
+          id: 125713,
           text: "andare al parco",
           done: false
         },
@@ -53,44 +53,11 @@ const app = createApp({
       console.log(this.arrayList)
     },
 
-
-
-/*-------------DA ULTIMARE-----------------*/
-
-    /**preleva l'attivita da svolgere in input
-     * verifica qual'è il primo id libero
-     * pusha tutto nell'array come nuovo oggetto
-     */
     addObject() {
-      for (let i=0; i<=this.arrayList.length-1; i++) {
-
-        let actualId = parseInt(this.arrayList[i].id);
-        let nextId = parseInt(this.arrayList[i+1].id); //id del prossimo indice 
-
-        console.log("l'id attuale è: " + actualId);
-        console.log("il prossimo id occupato è: " + nextId);
-
-
-        if (nextId !== actualId ) {
-          console.log("usiamo l id libero: " + parseInt(nextId+1))
-          return;
-        }
-      }
+      let newIdToAssing = Math.floor(Math.random() * 9999999) ;
+      this.arrayList.push({ id: newIdToAssing, text: this.myInput, done: false });
+      console.log(this.arrayList);
     }
-    /*this.arrayList.push({ id: searchFreeId, text: this.myInput, done: false });   
-    console.log(this.arrayList);*/
-
   }
-
-
-
-
-
-
-
-
-
-
-
 
 }).mount('#app');
