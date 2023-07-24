@@ -42,10 +42,8 @@ const app = createApp({
 
     onClickTextThrough(IdElement) {
       for (let i = this.arrayList.length - 1; i >= 0; i--) {
-        if (this.arrayList[i].id === IdElement && this.arrayList[i].done === false) {
+        if (this.arrayList[i].id === IdElement) {
           this.arrayList[i].done = true;
-        } else {
-          this.arrayList[i].done = false;
         }
       }
     },
