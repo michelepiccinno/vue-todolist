@@ -29,16 +29,18 @@
       <div class="my-3">
         <div class="card">
           <ul class="list-group">
-         
-             <!--applica le classi se done === true -->
+      
+            <!--applica le classi se done === true -->
             <li class="list-group-item" 
             v-for="(singleElement, i) in arrayList" 
             @click="onClickTextThrough(singleElement.id)"
-            v-bind:class="{ 'text-decoration-line-through text-body-tertiary': singleElement.done }">
-          
+            v-bind:key="singleElement.id"
+            v-bind:class="{ 'text-decoration-line-through text-body-tertiary': singleElement.done, 'text-body': !singleElement.done }">
+            {{ singleElement.text }}
+                  
             <!-- {{"id " +  singleElement.id}} -->
             {{singleElement.text}}
-             
+
             <button class="btn btn-link text-danger"
                 @click="deleteSingleElement(singleElement.id)">  <!-- al click "passo" l'id dell 'elemento cliccato alla function'-->
                 <i class="fa-regular fa-rectangle-xmark fa-xl"></i>

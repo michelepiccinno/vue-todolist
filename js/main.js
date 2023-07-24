@@ -32,10 +32,6 @@ const app = createApp({
       myInput: ''
     }
 
-    {
-      inputEnterKey: ''
-    }
-
   },
 
   methods: {
@@ -52,6 +48,7 @@ const app = createApp({
       for (let i = this.arrayList.length - 1; i >= 0; i--) {
         if (this.arrayList[i].id === IdElement) {
           this.arrayList.splice(i, 1); /*a partire dalla posizionie i elimina 1 oggetto dell'array */
+        break;
         }
       }
       console.log(this.arrayList)
