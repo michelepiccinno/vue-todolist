@@ -48,19 +48,20 @@ const app = createApp({
       for (let i = this.arrayList.length - 1; i >= 0; i--) {
         if (this.arrayList[i].id === IdElement) {
           this.arrayList.splice(i, 1); /*a partire dalla posizionie i elimina 1 oggetto dell'array */
-        break;
+          break;
         }
       }
       console.log(this.arrayList)
     },
 
     addObject() {
-      let newIdToAssing = Math.floor(Math.random() * 9999999);
-      this.arrayList.push({ id: newIdToAssing, text: this.myInput, done: false });
-      console.log(this.arrayList);
-      console.log(this.onEnter)
+      if (this.myInput != null) {
+        let newIdToAssing = Math.floor(Math.random() * 9999999);
+        this.arrayList.push({ id: newIdToAssing, text: this.myInput, done: false });
+        this.myInput = null;
+        console.log(this.arrayList);
+        console.log(this.onEnter)
+      } 
     },
-
-    
   }
 }).mount('#app');
